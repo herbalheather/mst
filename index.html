@@ -388,42 +388,189 @@
             </div>
         </section>
 
-        <!-- Emergency Resources Section -->
-        <section class="py-12 bg-red-50 border-l-4 border-red-500">
-            <div class="max-w-4xl mx-auto px-4">
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl font-bold mb-4 text-red-800 flex items-center justify-center gap-2">
-                        🚨 Emergency Mode
-                    </h2>
-                    <p class="text-lg text-red-700 mb-6">
-                        If you're in crisis and need help right now, these resources are here for you.
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
-                        <h3 class="text-xl font-semibold mb-3 text-red-800">Get Help Now</h3>
-                        <a href="https://www.thehotline.org/dvbeds/" target="_blank" rel="noopener noreferrer" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors inline-block font-semibold">
-                            The Hotline
-                        </a>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
-                        <h3 class="text-xl font-semibold mb-3 text-blue-800">📞 Call 211 for Local Resources</h3>
-                        <button onclick="window.open('tel:211', '_blank')" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-                            Call 211
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <p class="text-red-700 font-medium">
-                        For immediate danger, call 911. These resources are confidential and available 24/7.
-                    </p>
-                </div>
-            </div>
-        </section>
+        <!-- Emergency Resources Section - UPDATED: Smaller, Less Eye Strain -->
+<section class="emergency-section-wrapper">
+    <div class="emergency-section">
+        <h2>
+            <span style="font-size: 1.2rem;">🚨</span>
+            Emergency Mode
+        </h2>
+        <p class="emergency-description">
+            If you're in crisis and need help right now, these resources are here for you.
+        </p>
+        
+        <div class="emergency-buttons">
+            <a href="https://www.thehotline.org/dvbeds/" target="_blank" rel="noopener noreferrer" class="btn-emergency">
+                Get Help Now - The Hotline
+            </a>
+            <button onclick="window.open('tel:211', '_blank')" class="btn-211">
+                📞 Call 211 for Local Resources
+            </button>
+        </div>
+        
+        <p class="footer-text">
+            For immediate danger, call 911. These resources are confidential and available 24/7.
+        </p>
+    </div>
+</section>
 
+<style>
+/* Emergency Mode Section - Reduced Size & Eye Strain Fix */
+.emergency-section-wrapper {
+    padding: 2rem 1rem;
+    background-color: #fef2f2;
+}
+
+.emergency-section {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    border-left: 4px solid #b91c1c;
+    padding: 1.25rem 1.75rem;
+    margin: 0 auto;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.emergency-section h2 {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.emergency-description {
+    color: #fecaca;
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.emergency-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.875rem;
+    justify-content: center;
+}
+
+.btn-emergency {
+    background-color: #fff;
+    color: #dc2626;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-emergency:hover {
+    background-color: #fef2f2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-211 {
+    background-color: #dbeafe;
+    color: #1e40af;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    border: 2px solid #93c5fd;
+    cursor: pointer;
+}
+
+.btn-211:hover {
+    background-color: #bfdbfe;
+    border-color: #60a5fa;
+}
+
+.footer-text {
+    color: #fca5a5;
+    font-size: 0.8125rem;
+    margin-top: 0.75rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .emergency-section-wrapper {
+        padding: 1.5rem 1rem;
+    }
+    
+    .emergency-section {
+        padding: 1rem 1.25rem;
+        border-radius: 6px;
+    }
+    
+    .emergency-section h2 {
+        font-size: 1.125rem;
+    }
+    
+    .emergency-description {
+        font-size: 0.875rem;
+    }
+    
+    .emergency-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-emergency,
+    .btn-211 {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1rem;
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .emergency-section-wrapper {
+        padding: 1rem 0.75rem;
+    }
+    
+    .emergency-section {
+        padding: 0.875rem 1rem;
+    }
+    
+    .emergency-section h2 {
+        font-size: 1rem;
+    }
+    
+    .emergency-description {
+        font-size: 0.8125rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .footer-text {
+        font-size: 0.75rem;
+    }
+    
+    .btn-emergency,
+    .btn-211 {
+        font-size: 0.875rem;
+        padding: 0.75rem 1rem;
+    }
+}
+</style>
         <!-- Stories Section -->
         <section id="stories" class="py-16 bg-white">
             <div class="max-w-6xl mx-auto px-4">
