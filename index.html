@@ -1,1 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mama Said This - Sharing Maternal Wisdom & Building Community</title>
+    <meta name="description" content="A platform for mothers to share wisdom, stories, and support. Building stronger communities through maternal experiences and collective knowledge.">
+    <meta name="keywords" content="maternal wisdom, motherhood, parenting advice, community support, women empowerment">
+    <link rel="canonical" href="https://mamasaidthis.pages.dev">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mamasaidthis.pages.dev">
+    <meta property="og:title" content="Mama Said This - Sharing Maternal Wisdom">
+    <meta property="og:description" content="A platform for mothers to share wisdom, stories, and support.">
+    <meta property="og:site_name" content="Mama Said This">
+    
+    <!-- Performance & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Improved Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            html {
+                background: #0f0f0f !important;
+            }
+            
+            body {
+                background: #0f0f0f !important;
+                color: #ffffff !important;
+            }
+            
+            .bg-gradient-to-br {
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
+            }
+            
+            .bg-white {
+                background-color: #1f1f1f !important;
+                color: #ffffff !important;
+            }
+            
+            .bg-gray-50 {
+                background-color: #0f0f0f !important;
+                color: #ffffff !important;
+            }
+            
+            .text-gray-800 {
+                color: #ffffff !important;
+            }
+            
+            .text-gray-600 {
+                color: #d1d5db !important;
+            }
+            
+            .text-gray-700 {
+                color: #f3f4f6 !important;
+            }
+            
+            .border-gray-300 {
+                border-color: #4b5563 !important;
+            }
+            
+            .shadow-md {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.4) !important;
+            }
+            
+            .shadow-lg {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4) !important;
+            }
+            
+            nav {
+                background-color: #1f1f1f !important;
+                border-bottom: 1px solid #4b5563 !important;
+            }
+            
+            #mobile-menu {
+                background-color: #1f1f1f !important;
+                border-top: 1px solid #4b5563 !important;
+            }
+            
+            /* Tool card backgrounds for dark mode */
+            .bg-pink-50 { background-color: #2d1b2d !important; color: #ffffff !important; }
+            .bg-blue-50 { background-color: #1b2d3d !important; color: #ffffff !important; }
+            .bg-purple-50 { background-color: #2d1b3d !important; color: #ffffff !important; }
+            .bg-green-50 { background-color: #1b3d2d !important; color: #ffffff !important; }
+            .bg-yellow-50 { background-color: #3d3d1b !important; color: #ffffff !important; }
+            .bg-indigo-50 { background-color: #1b1b3d !important; color: #ffffff !important; }
+            .bg-orange-50 { background-color: #3d2d1b !important; color: #ffffff !important; }
+            .bg-teal-50 { background-color: #1b3d3d !important; color: #ffffff !important; }
+            .bg-rose-50 { background-color: #3d1b2d !important; color: #ffffff !important; }
+            .bg-slate-50 { background-color: #2d2d2d !important; color: #ffffff !important; }
+            
+            /* Form inputs in dark mode */
+            input, textarea, select {
+                background-color: #2d2d2d !important;
+                color: #ffffff !important;
+                border-color: #4b5563 !important;
+            }
+            
+            input::placeholder, textarea::placeholder {
+                color: #9ca3af !important;
+            }
+        }
+        
+        /* Enhanced animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            will-change: opacity, transform;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .mobile-padding { padding-left: 1rem; padding-right: 1rem; }
+        }
+        
+        /* Accessibility improvements */
+        .focus-visible:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        
+        /* Prose styling for about section */
+        .prose {
+            max-width: none;
+        }
+        
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Gradient text effects */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Pulse animation for CTA buttons */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.8); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        /* Carousel Styles */
+        .carousel-section {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .carousel-btn.prev {
+            left: 10px;
+        }
+        
+        .carousel-btn.next {
+            right: 10px;
+        }
+        
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .carousel-dot.active {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.3);
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-section {
+                max-width: 300px;
+            }
+            
+            .carousel-container {
+                height: 200px;
+            }
+            
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .carousel-btn.prev {
+                left: 8px;
+            }
+            
+            .carousel-btn.next {
+                right: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50 min-h-full">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-pink-600">Mama Said This</h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-pink-600 transition-colors">Home</a>
+                    <a href="#stories" class="text-gray-700 hover:text-pink-600 transition-colors">Stories</a>
+                    <a href="#about" class="text-gray-700 hover:text-pink-600 transition-colors">About</a>
+                    <a href="#tools" class="text-gray-700 hover:text-pink-600 transition-colors">Tools</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink-600 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-pink-600 p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-pink-600">Home</a>
+                <a href="#stories" class="block px-3 py-2 text-gray-700 hover:text-pink-600">Stories</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-pink-600">About</a>
+                <a href="#tools" class="block px-3 py-2 text-gray-700 hover:text-pink-600">Tools</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-pink-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="pt-20 pb-16 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 opacity-50"></div>
+            <div class="relative max-w-6xl mx-auto px-4 text-center">
+                <div class="float-animation mb-8">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">
+                        Mama Said This
+                    </h1>
+                </div>
+                <p class="text-xl md:text-2xl mb-4 text-gray-700 max-w-4xl mx-auto">
+                    Sharing Maternal Wisdom & Building Community
+                </p>
+                <p class="text-lg mb-8 text-gray-600 max-w-3xl mx-auto">
+                    A platform where mothers share wisdom, stories, and support. Because sometimes the best advice comes from another mama who's been exactly where you are.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#tools" class="bg-pink-600 text-white px-8 py-4 rounded-lg hover:bg-pink-700 transition-all duration-300 pulse-glow font-semibold text-lg">
+                        Explore Free Tools
+                    </a>
+                    <a href="#stories" class="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-300 font-semibold text-lg">
+                        Share Your Story
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Resources Section -->
+        <section class="py-12 bg-red-50 border-l-4 border-red-500">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold mb-4 text-red-800 flex items-center justify-center gap-2">
+                        🚨 Emergency Mode
+                    </h2>
+                    <p class="text-lg text-red-700 mb-6">
+                        If you're in crisis and need help right now, these resources are here for you.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                        <h3 class="text-xl font-semibold mb-3 text-red-800">Get Help Now</h3>
+                        <a href="https://www.thehotline.org/dvbeds/" target="_blank" rel="noopener noreferrer" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors inline-block font-semibold">
+                            The Hotline
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                        <h3 class="text-xl font-semibold mb-3 text-blue-800">📞 Call 211 for Local Resources</h3>
+                        <button onclick="window.open('tel:211', '_blank')" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                            Call 211
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-red-700 font-medium">
+                        For immediate danger, call 911. These resources are confidential and available 24/7.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories Section -->
+        <section id="stories" class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-6 text-gray-800">
+                        Mama Stories
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Real stories from real mamas. The messy, beautiful, challenging, and triumphant moments that shape our motherhood journey.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-pink-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">"The 3 AM Revelation"</h3>
+                        <p class="text-gray-600 mb-4">How a sleepless night with my colicky baby taught me that sometimes the best parenting advice is to trust your instincts...</p>
+                        <div class="text-sm text-gray-500">- Sarah, mom of 2</div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">"Letting Go of Perfect"</h3>
+                        <p class="text-gray-600 mb-4">The day I served cereal for dinner and realized that being a 'good enough' mom is actually perfect...</p>
+                        <div class="text-sm text-gray-500">- Maria, mom of 3</div>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">"Finding My Village"</h3>
+                        <p class="text-gray-600 mb-4">How a chance conversation at the playground connected me with my lifelong mom friends...</p>
+                        <div class="text-sm text-gray-500">- Jennifer, mom of 1</div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#contact" class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                        Share Your Story
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                        About Mama Said This
+                    </h2>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Carousel -->
+                    <div class="carousel-section">
+                        <div class="carousel-container">
+                            <div class="carousel" id="carousel">
+                                <div class="carousel-slide active">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/10168631_. _1601527271_o.jpg" alt="Mama moments" loading="eager" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/11170360_. _. 914_n.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/116.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/20200912_133733.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/2021-08-02%20(1).jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/2021-08-02%20(2).jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/2021-08-02.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/20250307_195104.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/20250311_193635.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/20250325_200017.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/20250504_081538.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/29790950_. _. 610_n.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/5.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/51503763_. _. 424_n.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/6.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/76C1C951-66BB-43B9-AC96-901B893436A4-COLLAGE.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/7DA622BA-94AA-44B5-A39B-96226A652AF9.jpeg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/86627731_. _. 48_n%20(1).jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/9e5316cc-8e80-47c2-876e-cdcf89af324a.jpeg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/Firefly_unforgettable%20visual%20that%20defines%20the%20brand%20%22Mama%20Said%20This.%22_The%20image%20should%20look%20l%20304631.jpg" alt="Mama Said This Brand" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/Firefly_unforgettable%20visual%20that%20defines%20the%20brand%20%22Mama%20Said%20This.%22_The%20image%20should%20look%20l%20442951%20(1).jpg" alt="Mama Said This Brand" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_0978.jpeg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_1043.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_1171.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_1516.JPG" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_1856.JPG" alt="Family love" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_1925.JPG" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_20250717_124147811.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_20250717_124152088.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_20250717_124152652.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_2232.JPG" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_2546.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_6713.JPG" alt="Building together" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_7327.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_7945.JPG" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_8153.JPG" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_9166.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/IMG_9489.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/QVZoU0loZ2RKeUlFX21hckRHVUlPVmFt.jpeg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/QVZoVkRQZEdPeDgxTnBMR19JR1VrdjJu.jpeg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/QVZpQXF4SmIwMm0yb1cwb2tMc1VGQXJm.jpeg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://herbalheather.github.io/picturefile/picsforweb/dolly7.jpg" alt="Mama moments" loading="lazy" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev" id="prevBtn" aria-label="Previous image">❮</button>
+                            <button class="carousel-btn next" id="nextBtn" aria-label="Next image">❯</button>
+                            <div class="carousel-dots" id="carouselDots"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- About Text -->
+                    <div class="prose prose-lg text-gray-600">
+                        <p class="text-lg mb-6 font-medium text-gray-800">
+                            Hey, I'm Heather
+                        </p>
+                        
+                        <p class="mb-6">
+                            I make free tools because I've been the one who needed them. From coding to herbalism, these tools are things I wish I could have found when I needed them most.
+                        </p>
+                        
+                        <p class="mb-6">
+                            It's bad enough going through tough times without hitting paywalls for basic information. Mama said hell no to that.
+                        </p>
+                        
+                        <p class="mb-6">
+                            My mom died when I was 19, just as I learned I was pregnant with my first. Food banks, emergency C-sections, multiple cash cars, and a pandemic with newborn twins taught me everything.
+                        </p>
+                        
+                        <p class="mb-6">
+                            So I built this—pantry finders, budget help, resources that don't judge or gatekeep.
+                        </p>
+                        
+                        <p class="mb-6 italic text-gray-700">
+                            For Carrie Hilliard, Donna Chambers, and Elva McConnell, who ran a free clothing store in Italy, Texas for years and gave without asking why.
+                        </p>
+                        
+                        <p class="text-center font-medium text-gray-800">
+                            Because sometimes, the best advice comes from another mama who's been exactly where you are.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                        Built with Love. Shared Free.
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Practical tools designed to make family life a little easier. All completely free to use.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Working Tools from Live Site -->
+                    <div class="bg-pink-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">📝</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Education Sheet Creator</h3>
+                        <p class="text-gray-600 mb-4">Choose between K-6 or advanced worksheet generators for custom learning materials.</p>
+                        <a href="https://edusheet-chooser.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition-colors inline-block">
+                            Create Worksheets
+                        </a>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">💰</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Benefit Calculator 2025</h3>
+                        <p class="text-gray-600 mb-4">Calculate and compare employment benefits packages to make informed decisions.</p>
+                        <a href="https://benefitcalculator1.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors inline-block">
+                            Calculate Benefits
+                        </a>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">💵</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Texas Paystub Calculator</h3>
+                        <p class="text-gray-600 mb-4">Generate professional pay stubs for budgeting and verification purposes.</p>
+                        <a href="https://calculator-ea5.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors inline-block">
+                            Generate Paystub
+                        </a>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Budget Tracker</h3>
+                        <p class="text-gray-600 mb-4">Simple, effective tool to track expenses and manage family finances.</p>
+                        <a href="https://mamasaidthis.pages.dev/budget-tracker" target="_blank" rel="noopener noreferrer" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors inline-block">
+                            Track Budget
+                        </a>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">🎮</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Jaggers Division Game</h3>
+                        <p class="text-gray-600 mb-4">Fun educational math game for practicing division skills with kids.</p>
+                        <a href="https://jaggersgames.pages.dev/" target="_blank" rel="noopener noreferrer" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 transition-colors inline-block">
+                            Play Game
+                        </a>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">👩‍👧</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Mama Hub</h3>
+                        <p class="text-gray-600 mb-4">Connect with other mamas, find local support groups, and build your village.</p>
+                        <a href="https://www.peanut-app.io/" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors inline-block">
+                            Join Community
+                        </a>
+                    </div>
+                    
+                    <div class="bg-teal-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">🧰</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Mama Tool Kit</h3>
+                        <p class="text-gray-600 mb-4">Essential worksheets and resources for everyday parenting challenges.</p>
+                        <a href="https://mamasaidthis.pages.dev/resources" target="_blank" rel="noopener noreferrer" class="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 transition-colors inline-block">
+                            Get Tools
+                        </a>
+                    </div>
+                    
+                    <div class="bg-slate-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">👨‍👧‍👦</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Dad Hub</h3>
+                        <p class="text-gray-600 mb-4">Resources and community support specifically designed for fathers and father figures.</p>
+                        <a href="https://www.fatherli.com/" target="_blank" rel="noopener noreferrer" class="bg-slate-600 text-white px-4 py-2 rounded hover:bg-slate-700 transition-colors inline-block">
+                            Dad Resources
+                        </a>
+                    </div>
+                    
+                    <div class="bg-orange-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Family Goal Tracker</h3>
+                        <p class="text-gray-600 mb-4">Goal-setting tools and resources to help kids and families achieve their dreams together.</p>
+                        <a href="https://www.imom.com/11-goal-setting-tools-kids/" target="_blank" rel="noopener noreferrer" class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition-colors inline-block">
+                            Get Tools
+                        </a>
+                    </div>
+                    
+                    <div class="bg-rose-50 p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-4xl mb-4">📅</div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Family Calendar</h3>
+                        <p class="text-gray-600 mb-4">Organize family schedules, appointments, and activities with Google Calendar.</p>
+                        <a href="https://workspace.google.com/products/calendar/" target="_blank" rel="noopener noreferrer" class="bg-rose-600 text-white px-4 py-2 rounded hover:bg-rose-700 transition-colors inline-block">
+                            Get Calendar
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <p class="text-gray-600 mb-4">More tools coming soon! Have a suggestion?</p>
+                    <a href="#contact" class="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 transition-colors inline-block">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                        Get in Touch
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Found a bug? Have an idea for a new tool? Just want to say hi? Send me a message!
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="contact-name" name="contact-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="contact-email" name="contact-email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select id="contact-subject" name="contact-subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                                <option value="">Choose a topic</option>
+                                <option value="tool-feedback">Tool Feedback</option>
+                                <option value="new-tool-idea">New Tool Idea</option>
+                                <option value="bug-report">Bug Report</option>
+                                <option value="general-question">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="contact-message" name="contact-message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Tell me about your experience with the tools, ideas for improvements, or anything else you'd like to share..."></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="bg-pink-600 text-white px-8 py-3 rounded-lg hover:bg-pink-700 transition-colors font-semibold">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="contact-success" class="hidden mt-6 p-6 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
+                        <div class="text-2xl mb-2">✉️</div>
+                        <h3 class="font-semibold mb-2">Message sent successfully!</h3>
+                        <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <p class="text-gray-600 mb-4">You can also find me on:</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/herbalheather" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-600 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@mamasaidthis.com" class="text-gray-600 hover:text-pink-600 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://heatherherbalhome.pages.dev/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-pink-600 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h8z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-pink-400">
+                        Mama Said This
+                    </h3>
+                    <p class="text-gray-400 mb-4">Practical parenting tools created by a mama for mamas. Making family life a little easier, one tool at a time.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-pink-400 transition-colors">Home</a></li>
+                        <li><a href="#stories" class="hover:text-pink-400 transition-colors">Stories</a></li>
+                        <li><a href="#about" class="hover:text-pink-400 transition-colors">About</a></li>
+                        <li><a href="#tools" class="hover:text-pink-400 transition-colors">Tools</a></li>
+                        <li><a href="#contact" class="hover:text-pink-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://github.com/herbalheather" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:hello@mamasaidthis.com" class="text-gray-400 hover:text-pink-400 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://heatherherbalhome.pages.dev/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h8z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">All tools are free to use and open source.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Mama Said This. Made with ❤️ for families everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contact-form');
+        const contactSuccess = document.getElementById('contact-success');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    contactSuccess.classList.remove('hidden');
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    setTimeout(() => {
+                        contactSuccess.classList.add('hidden');
+                    }, 5000);
+                }, 1500);
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('carouselDots');
+        
+        let currentSlide = 0;
+        let autoSlideInterval;
+        
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+            resetAutoSlide();
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 2500);
+        }
+        
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+        
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+        
+        // Pause auto-slide on hover
+        carousel.addEventListener('mouseenter', stopAutoSlide);
+        carousel.addEventListener('mouseleave', startAutoSlide);
+        
+        // Keyboard navigation for carousel
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                resetAutoSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                resetAutoSlide();
+            }
+        });
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+                resetAutoSlide();
+            }
+        }
+        
+        // Start auto-slide
+        startAutoSlide();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99422f57b33d2d41',t:'MTc2MTQwMDI0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
 
