@@ -905,7 +905,394 @@
                 </div>
             </div>
         </section>
+<!-- MAMA MISSIONS SECTION - Insert this after your "Built with Love" tools section -->
+<section class="mama-missions-section">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold mb-2">📋 Mama Missions</h2>
+            <p class="text-gray-600 mb-4">
+                Click to complete. Because even small wins deserve celebration.
+            </p>
+            
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill">0%</div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="missions-actions">
+                <button id="exportBtn" class="btn-export">
+                    💾 Export Results
+                </button>
+                <button id="resetBtn" class="btn-reset">
+                    🔄 Reset Progress
+                </button>
+            </div>
+        </div>
+        
+        <!-- Missions Grid -->
+        <div class="missions-grid" id="missionsGrid">
+            <!-- Missions will be rendered here by JavaScript -->
+        </div>
+    </div>
+</section>
 
+<style>
+.mama-missions-section {
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+}
+
+.progress-container {
+    max-width: 600px;
+    margin: 1.5rem auto;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 2rem;
+    background-color: #fff;
+    border-radius: 9999px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ec4899;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ec4899 0%, #db2777 100%);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    min-width: 3rem;
+}
+
+.missions-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-export,
+.btn-reset {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-export {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.btn-export:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.btn-reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.mission-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: #ec4899;
+}
+
+.mission-card.completed {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: #10b981;
+}
+
+.mission-card.completed::before {
+    content: "✓ ";
+    font-size: 1.5rem;
+    color: #059669;
+    font-weight: bold;
+}
+
+.mission-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.mission-card.completed .mission-title {
+    color: #065f46;
+}
+
+.mission-desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.mission-card.completed .mission-desc {
+    color: #047857;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .mama-missions-section {
+        padding: 2rem 1rem;
+    }
+    
+    .missions-grid {
+        grid-template-columns: 1fr;
+        gap: 0.875rem;
+    }
+    
+    .mission-card {
+        padding: 1.25rem;
+    }
+    
+    .missions-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .btn-export,
+    .btn-reset {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .mama-missions-section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .mission-card {
+        padding: 1rem;
+    }
+    
+    .mission-title {
+        font-size: 1rem;
+    }
+    
+    .mission-desc {
+        font-size: 0.8125rem;
+    }
+    
+    .progress-bar {
+        height: 1.75rem;
+    }
+    
+    .progress-fill {
+        font-size: 0.8125rem;
+    }
+}
+</style>
+
+<script>
+    // MAMA MISSIONS - WORKING
+    // =======================
+    const missions = [
+        {
+            title: "Find Your Left Sock's Long-Lost Twin",
+            desc: "It's in there somewhere. Probably chilling with last year's hair ties."
+        },
+        {
+            title: "Do Laundry Before It Becomes Sentient",
+            desc: "That pile is giving you side-eye. Time to show it who's boss."
+        },
+        {
+            title: "Five-Minute Declutter Dash",
+            desc: "Set a timer, grab a basket, throw stuff in. Not where it goes? That's tomorrow's problem."
+        },
+        {
+            title: "Drink Water, Queen 👑",
+            desc: "Coffee doesn't count. Hydrate like the powerful human you are."
+        },
+        {
+            title: "Call 211 If You Need Help",
+            desc: "Real talk: If you need resources, food, shelter, or support — call 211. No shame, just help."
+        },
+        {
+            title: "Text Someone Who Makes You Smile",
+            desc: "Your bestie, your mom, that one friend with the memes. Connection counts."
+        },
+        {
+            title: "Eat Something That's NOT Standing Up",
+            desc: "Sit down. Even for 5 minutes. You deserve it."
+        },
+        {
+            title: "Take Your Vitamins (If You Have Them)",
+            desc: "Or just acknowledge you thought about it. That's half the battle."
+        },
+        {
+            title: "Put Your Phone on Charge",
+            desc: "Because 14% battery at bedtime is a tomorrow problem you can prevent."
+        },
+        {
+            title: "Dance Like Nobody's Watching",
+            desc: "Even if they are. Especially if they are. Life's short, bust a move."
+        },
+        {
+            title: "Say One Nice Thing to Yourself",
+            desc: "Out loud. In your head. Write it down. You're doing better than you think."
+        },
+        {
+            title: "Make Tomorrow-You Breakfast",
+            desc: "Set out the coffee. Prep the lunch. Future you will be so grateful."
+        }
+    ];
+
+    const missionsGrid = document.getElementById('missionsGrid');
+    const progressFill = document.getElementById('progressFill');
+    const exportBtn = document.getElementById('exportBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    let completedMissions = [];
+    
+    try {
+        if (window.localStorage) {
+            const saved = localStorage.getItem('completedMissions');
+            if (saved) {
+                completedMissions = JSON.parse(saved);
+            }
+        }
+    } catch (e) {
+        completedMissions = [];
+    }
+
+    function renderMissions() {
+        missionsGrid.innerHTML = '';
+        for (let i = 0; i < missions.length; i++) {
+            const mission = missions[i];
+            const card = document.createElement('div');
+            card.className = 'mission-card';
+            
+            if (completedMissions.indexOf(i) !== -1) {
+                card.classList.add('completed');
+            }
+            
+            card.innerHTML = '<div class="mission-title">' + mission.title + '</div>' +
+                            '<div class="mission-desc">' + mission.desc + '</div>';
+            
+            (function(index) {
+                card.addEventListener('click', function() {
+                    toggleMission(index);
+                });
+            })(i);
+            
+            missionsGrid.appendChild(card);
+        }
+        updateProgress();
+    }
+
+    function toggleMission(index) {
+        const missionIndex = completedMissions.indexOf(index);
+        if (missionIndex > -1) {
+            completedMissions.splice(missionIndex, 1);
+        } else {
+            completedMissions.push(index);
+        }
+        
+        try {
+            if (window.localStorage) {
+                localStorage.setItem('completedMissions', JSON.stringify(completedMissions));
+            }
+        } catch (e) {
+            console.log('Could not save missions');
+        }
+        
+        renderMissions();
+    }
+
+    function updateProgress() {
+        const percentage = Math.round((completedMissions.length / missions.length) * 100);
+        progressFill.style.width = percentage + '%';
+        progressFill.textContent = percentage + '%';
+    }
+
+    exportBtn.addEventListener('click', function() {
+        if (completedMissions.length === 0) {
+            alert('Complete some missions first! 💪');
+            return;
+        }
+        
+        let text = '✅ MY MAMA MISSIONS - COMPLETED\n\n';
+        text += 'Look at me go! Here\'s what I conquered:\n\n';
+        
+        for (let i = 0; i < completedMissions.length; i++) {
+            const index = completedMissions[i];
+            text += '✓ ' + missions[index].title + '\n';
+        }
+        
+        text += '\n' + completedMissions.length + ' out of ' + missions.length + ' missions completed!\n';
+        text += '\nYou\'re doing amazing! Keep going! 💪❤️\n';
+        text += '\n- From Mama Said This (mst-10x.pages.dev)';
+
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'my-mama-missions.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+
+    resetBtn.addEventListener('click', function() {
+        if (confirm('Are you sure you want to reset all missions? (Your progress will be cleared)')) {
+            completedMissions = [];
+            try {
+                if (window.localStorage) {
+                    localStorage.removeItem('completedMissions');
+                }
+            } catch (e) {
+                console.log('Could not clear missions');
+            }
+            renderMissions();
+        }
+    });
+
+    // Initialize missions
+    renderMissions();
+</script>
         <!-- Contact Section -->
         <section id="contact" class="py-16 bg-gray-50">
             <div class="max-w-4xl mx-auto px-4">
